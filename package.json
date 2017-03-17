@@ -1,5 +1,5 @@
 {
-  "name": "ember-models-table",
+  "name": "ember-semantic-ui-models-table",
   "version": "1.11.0",
   "description": "Table with pagination, sorting and filtering",
   "keywords": [
@@ -11,7 +11,7 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "https://github.com/onechiporenko/ember-models-table",
+  "repository": "https://github.com/hugoruscitti/ember-semantic-ui-models-table",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
@@ -34,6 +34,7 @@
     "ember-cli-qunit": "^3.0.1",
     "ember-cli-release": "^0.2.9",
     "ember-cli-sri": "^2.1.0",
+    "ember-cli-surge": "1.1.17",
     "ember-cli-test-loader": "^1.1.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "^2.10.0",
@@ -48,7 +49,7 @@
     "node": ">= 0.12.0"
   },
   "ember-addon": {
-    "demoURL": "http://onechiporenko.github.io/ember-models-table/",
+    "demoURL": "http://ember-semantic-ui-models-table.surge.sh",
     "configPath": "tests/dummy/config"
   }
 }
