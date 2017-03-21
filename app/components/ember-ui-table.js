@@ -1,1 +1,1 @@
-export { default } from 'ember-semantic-ui-models-table/components/ember-ui-table';
+export { default } from 'ember-models-table/components/ember-ui-table';
