@@ -1,20 +1,18 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  filas: [
+  dinamicallyRows: Ember.A([
     {
+      id: 1,
       nombre: 'demo',
       apellido: 'otro'
     }
-  ],
-  columnas: [
-    {
-      propertyName: 'nombre',
-      title: "Nombre"
-    },
-    {
-      propertyName: 'apellido',
-      title: "Apellido"
-    },
-  ]
+  ]),
+
+  actions: {
+    addRandomData() {
+      let newID = this.get('dinamicallyRows.length') + 1;
+      this.get("dinamicallyRows").pushObject({id: newID, nombre: "123", apellido: 'asd'});
+    }
+  }
 });
