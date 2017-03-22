@@ -1,59 +1,57 @@
-<div class="models-table-wrapper {{classes.outerTableWrapper}}">
-  <div class="{{classes.globalFilterDropdownWrapper}}">
-    {{! global filter start }}
-    {{#if showGlobalFilter}}
-      {{partial globalFilterTemplate}}
-    {{/if}}
-    {{! global filter end }}
-    {{! columns dropdown start }}
-    {{#if showColumnsDropdown}}
-      {{partial columnsDropdownTemplate}}
-    {{/if}}
-    {{! columns dropdown end }}
-  </div>
+<div class='models-table'>
 
-  <!-- Div needed by Firefox to reset floating positioning -->
-  <div style="clear:both"/>
-
-  <div class="{{classes.innerTableWrapper}}">
-    <table class="{{classes.table}}">
-      {{! table header start }}
-      <thead class="{{classes.thead}}">
-        {{#if groupedHeaders.length}}
-          {{partial headerGroupedRowsTemplate}}
-        {{/if}}
-        {{partial headerSortingRowTemplate}}
-        {{#if useFilteringByColumns}}
-          {{partial headerFilteringRowTemplate}}
-        {{/if}}
-      </thead>
-      {{! table header end }}
-      {{! table body start }}
-      <tbody>
-        {{#if allColumnsAreHidden}}
-          {{partial allColumnsHiddenTemplate}}
-        {{else}}
-          {{#if visibleContent.length}}
-            {{#each visibleContent as |record index|}}
-              {{partial rowTemplate}}
-            {{/each}}
-          {{else}}
-            {{partial noDataShowTemplate}}
-          {{/if}}
-        {{/if}}
-      </tbody>
-      {{! table body end }}
-      {{! table footer start }}
-      <tfoot>
-        {{partial tableFooterTemplate}}
-      </tfoot>
-      {{! table footer end }}
-    </table>
-  </div>
-  {{! table footer start }}
-  {{#if showComponentFooter}}
-    {{partial componentFooterTemplate}}
+  {{#if showGlobalFilter}}
+    {{partial globalFilterTemplate}}
   {{/if}}
-  {{! table footer end }}
+
+  {{#if showColumnsDropdown}}
+    {{partial columnsDropdownTemplate}}
+  {{/if}}
+
+  <table class="ui celled table selectable">
+
+    <thead>
+      {{#if groupedHeaders.length}}
+        {{partial headerGroupedRowsTemplate}}
+      {{/if}}
+
+      {{partial headerSortingRowTemplate}}
+
+      {{#if useFilteringByColumns}}
+        {{partial headerFilteringRowTemplate}}
+      {{/if}}
+    </thead>
+
+    <tbody>
+
+      {{#if allColumnsAreHidden}}
+        <tr><td colspan={{processedColumns.length}} class="{{classes.noDataCell}}">{{{messages.allColumnsAreHidden}}}</td></tr>
+      {{else}}
+        {{#if visibleContent.length}}
+          {{#each visibleContent as |record index|}}
+            {{partial rowTemplate}}
+          {{/each}}
+        {{else}}
+          <tr><td colspan="{{visibleProcessedColumns.length}}">{{{messages.noDataToShow}}}</td></tr>
+        {{/if}}
+      {{/if}}
+
+    </tbody>
+
+    <tfoot>
+      {{partial tableFooterTemplate}}
+
+      <tr>
+        <th colspan={{processedColumns.length}}>
+          {{#if showComponentFooter}}
+          {{partial componentFooterTemplate}}
+          {{/if}}
+        </th>
+      </tr>
+    </tfoot>
+
+  </table>
+
+  {{yield}}
+
 </div>
-{{yield}}
