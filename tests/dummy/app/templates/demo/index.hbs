@@ -1,6 +1,18 @@
-<h2>Simple example</h2>
+
+
+  <h2>Simple example</h2>
+
+  {{ember-ui-table
+    rows=model.rows
+    cols=model.cols
+  }}
+
+
+<h2>Adding data dinamically</h2>
+
+<button class='ui button' {{action 'addRandomData'}}>Add random data</button>
 
 {{ember-ui-table
-  rows=model.rows
+  rows=dinamicallyRows
   cols=model.cols
 }}

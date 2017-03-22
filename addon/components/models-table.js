@@ -977,6 +977,15 @@ export default Component.extend({
     }
   }),
 
+  activarDropdown: on('didInsertElement', function() {
+    this.$('.dropdown-toggle').popup({
+      popup: $('.custom.popup'),
+      on: 'click',
+      position:	'bottom center',
+      transition: 'fade down',
+    });
+  }),
+
   /**
    * Preselect table rows if `preselectedItems` is provided
    * `multipleSelected` may be set `true` if `preselectedItems` has more than 1 item
