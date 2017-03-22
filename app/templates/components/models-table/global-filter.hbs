@@ -1,10 +1,20 @@
-<div class="{{classes.globalFilterWrapper}}">
-  <div class="form-inline globalSearch">
-    <div class="form-group">
-      <label>{{messages.searchLabel}}</label> {{input type="text" value=filterString class=(concat classes.input " filterString") enter="" placeholder=messages.searchPlaceholder}}
+<div class="ui right floated models-table-global-filter">
+
+  <form class="ui form grid">
+
+    <div class="item">
+      {{messages.searchLabel}}
+    </div>
+
+    <div class="item">
+      {{input type="text" value=filterString class=(concat classes.input " item filterString") enter="" placeholder=messages.searchPlaceholder}}
+    </div>
+
+    <div class="item">
       {{#if globalFilterUsed}}
         <span onclick={{action (mut filterString) ""}} class="clearFilterIcon {{classes.clearFilterIcon}}"></span>
       {{/if}}
     </div>
-  </div>
+
+  </form>
 </div>
