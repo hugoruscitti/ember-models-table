@@ -8,8 +8,8 @@ pre {
     text-align: left;
     white-space: pre-line;
 }
+
 .table-footer {
-    border: 1px solid #ddd;
     padding: 5px 0;
 }
 
@@ -30,10 +30,15 @@ pre {
 }
 
 tr.selected-row>td, tr.selected-expand>td {
-    background: #C6E746;
+    background: #dff2ff;
+}
+
+.demo-main-container {
+  margin: 3em;
 }
 
 
-.margin-top {
-  margin-top: 3em;
+.column-icon-box {
+  display: inline-block;
+  width: 20px;
 }
