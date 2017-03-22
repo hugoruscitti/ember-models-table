@@ -5,7 +5,7 @@
       {{messages.columns-title}} <span class="{{icons.caret}}"></span>
     </button>
 
-    <ul class="ui custom popup {{classes.columnsDropdown}}">
+    <div class="ui custom popup {{classes.columnsDropdown}}">
 
       <div class="ui secondary vertical menu">
         <a class="item" {{action "showAllColumns" column bubbles=false}} href="#">{{messages.columns-showAll}}</a>
@@ -15,17 +15,15 @@
 
         {{#each processedColumns as |column|}}
           {{#if column.mayBeHidden}}
-            <li>
               <a class='item' {{action "toggleHidden" column bubbles=false}} href="#">
                 <span class='column-icon-box'>{{#if column.isVisible}} ✔ {{else}} ▢ {{/if}}</span>
                 {{column.title}}
               </a>
-            </li>
           {{/if}}
         {{/each}}
 
       </div>
 
-    </ul>
+    </div>
   </div>
 </div>
