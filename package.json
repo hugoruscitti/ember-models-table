@@ -1,6 +1,6 @@
 {
   "name": "ember-semantic-ui-models-table",
-  "version": "1.11.4",
+  "version": "1.11.5",
   "description": "Table with pagination, sorting and filtering",
   "keywords": [
     "ember-addon"
