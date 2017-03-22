@@ -982,6 +982,7 @@ export default Component.extend({
       popup: $('.custom.popup'),
       on: 'click',
       position:	'bottom center',
+      lastResort: 'bottom right',
       transition: 'fade down',
     });
   }),
