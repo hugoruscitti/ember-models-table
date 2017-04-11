@@ -1,7 +1,7 @@
 <tr>
   {{#each processedColumns as |column|}}
     {{#if column.isVisible}}
-      <th class="{{classes.theadCell}} {{unless column.useFilter classes.theadCellNoFiltering}}">
+      <th class="header-filter {{classes.theadCell}} {{unless column.useFilter classes.theadCellNoFiltering}}">
         {{#if column.templateForFilterCell}}
           {{partial column.templateForFilterCell}}
         {{else}}
@@ -9,17 +9,19 @@
             {{component column.componentForFilterCell data=data column=column row=record table=this}}
           {{else}}
             {{#if column.useFilter}}
-              <div class="{{if column.filterUsed "has-feedback"}}">
-
+              <div class="ui input {{if column.filterUsed "has-feedback"}}">
                 {{#if column.filterWithSelect}}
                   {{models-select options=column.filterOptions cssPropertyName=column.cssPropertyName value=column.filterString class=(concat classes.input " changeFilterForColumn")}}
                 {{else}}
-                  {{input type="text" value=column.filterString class=classes.input enter="" placeholder=column.title}}
+                  {{input type="text" value=column.filterString class=classes.input enter="" placeholder=" "}}
                 {{/if}}
 
+                <!--
                 {{#if column.filterUsed}}
-                  <span onclick={{action (mut column.filterString) ""}} class="clearFilterIcon {{classes.clearFilterIcon}}"></span>
+                  <span onclick={{action (mut column.filterString) ""}}>limpiar</span>
                 {{/if}}
+                -->
+
               </div>
             {{else}}
               &nbsp;
